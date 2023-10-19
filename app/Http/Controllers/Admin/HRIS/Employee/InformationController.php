@@ -9,13 +9,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
 class InformationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
@@ -56,7 +57,7 @@ class InformationController extends Controller
                 'status' => $request->input('status'),
             ]);
             return \response()->json(["employee" => $employee, 'message' => 'Employee profile created successfully.']);
-        } catch (\Throwable $throwable) {
+        } catch (Throwable $throwable) {
             return response()->json([
                 "status" => Response::HTTP_INTERNAL_SERVER_ERROR,
                 "message" => $throwable->getMessage(),

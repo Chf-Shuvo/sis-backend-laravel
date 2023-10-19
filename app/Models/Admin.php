@@ -15,7 +15,7 @@ use Laravel\Sanctum\PersonalAccessToken;
  * App\Models\Admin
  *
  * @property int $id
- * @property int $admin_id
+ * @property string $admin_id
  * @property string $name
  * @property string $username
  * @property string $email
